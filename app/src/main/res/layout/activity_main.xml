@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.co/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hh2"
+    android:orientation="vertical"
+    tools:context=".screens.MainActivity">
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="11dp"
+        android:contentDescription="@string/imageTitle"
+        android:scaleType="fitXY"
+        android:src="@drawable/gear_icon" />
+
+    <!--    android:src="@mipmap/shirt3_icon_foreground"-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="serif"
+        android:gravity="center_horizontal"
+        android:text="@string/Title"
+        android:textColor="@color/orange"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/contcatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/Title2"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/instagram_icon"
+            style="@style/myIcon"
+            android:layout_weight="1"
+            android:src="@drawable/instagram_icon" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/facebook_icon"
+            style="@style/myIcon"
+            android:layout_weight="3"
+            android:baselineAligned="false"
+            android:src="@drawable/facebook_icon" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/twitter_icon"
+            style="@style/myIcon"
+            android:layout_weight="1"
+            android:src="@drawable/twitter_icon" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/google_image"
+            style="@style/myIcon"
+            android:layout_weight="1"
+            android:src="@drawable/google_icon"
+            app:civ_border_color="@color/silver"
+            app:civ_border_width="2dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center_horizontal"
+        android:text="@string/Title3"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/silver" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="or" />
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/silver" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/signupBu"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/roundedbutton"
+        android:gravity="center"
+        android:text="Sign up with email"
+        android:textAlignment="center"
+        android:textColor="@color/orange" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text=" Log in"
+            android:textColor="@color/orange"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/Terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/Terms"
+        android:textSize="15sp" />
+
+
+</LinearLayout>
