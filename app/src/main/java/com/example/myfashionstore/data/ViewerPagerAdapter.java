@@ -15,7 +15,6 @@ public class ViewerPagerAdapter extends FragmentPagerAdapter {
 
     public ViewerPagerAdapter(FragmentManager fm){
         super(fm);
-
     }
 
     @NonNull

@@ -1,23 +1,23 @@
 package com.example.myfashionstore.data;
 
-public class Profile {
-    String name , email , password;
+public class UserProfile {
+    String username, email , password;
 
-    public Profile() {
+    public UserProfile() {
     }
 
-    public Profile(String name, String email, String password) {
-        this.name = name;
+    public UserProfile(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

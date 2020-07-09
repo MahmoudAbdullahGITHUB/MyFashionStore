@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myfashionstore">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/shirt3_icon"
@@ -11,8 +9,12 @@
         android:roundIcon="@mipmap/shirt3_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme3">
-        <activity android:name=".screens.SearchActivity"
-            android:theme="@style/AppTheme5"/>
+        <activity android:name=".NavigationScreens.ShortsActivity"></activity>
+        <activity android:name=".NavigationScreens.TrousersActivity" />
+        <activity android:name=".NavigationScreens.ShirtsActivity" />
+        <activity
+            android:name=".screens.SearchActivity"
+            android:theme="@style/AppTheme5" />
         <activity
             android:name=".screens.WelcomeActivity"
             android:theme="@style/AppTheme5" />
@@ -40,5 +42,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

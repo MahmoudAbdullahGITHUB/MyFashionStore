@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/shirts_part"
+            android:icon="@drawable/shirt"
+            android:title="Shirts" />
+        <item
+            android:id="@+id/shorts_part"
+            android:icon="@drawable/shorts_48"
+            android:title="Shorts" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/trousers_part"
+            android:icon="@drawable/trousers_48"
+            android:title="Trousers" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/share_24"
+                android:title="Trousers" />
+
+            <item
+                android:id="@+id/phone"
+                android:icon="@drawable/phone_24"
+                android:title="Phone Call" />
+
+        </menu>
+    </item>
+
+</menu>

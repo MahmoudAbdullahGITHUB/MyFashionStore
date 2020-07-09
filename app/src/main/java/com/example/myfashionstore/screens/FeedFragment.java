@@ -41,6 +41,7 @@ public class FeedFragment extends Fragment {
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
+        // to make this fragment is the default in this activity look note # 14 on the NoteBook
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.viewPagerID,
                 new FollowingFragment()).commit();
 

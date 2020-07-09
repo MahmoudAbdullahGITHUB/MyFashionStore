@@ -2,24 +2,35 @@ package com.example.myfashionstore.screens;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.example.myfashionstore.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -28,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
     GoogleSignInAccount account;
     GoogleSignInClient mGoogleSignInClient;
     BottomNavigationView bottomNav;
-
+    CircleImageView cR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +50,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
+        cR = findViewById(R.id.profile_imageCV);
+
         // this to be able to back to the previous activity by the top left arrow on the Actionbar
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // the default fragment to start is feed fragment
+        // make the default fragment to start is feed fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new FeedFragment()).commit();
 
@@ -57,8 +70,9 @@ public class WelcomeActivity extends AppCompatActivity {
         account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (account != null) {
             System.out.println(" 2 = " + account.getDisplayName());
-        }else
+        } else
             System.out.println(" 2 = account null here");
+
 
     }
 
@@ -66,14 +80,14 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.my_menu , menu);
+        menuInflater.inflate(R.menu.my_menu, menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.logout:
                 signOut();
                 break;
@@ -94,22 +108,26 @@ public class WelcomeActivity extends AppCompatActivity {
                     }
                 });
         finish();
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 
     @Override
     public void onBackPressed() {
-        if(backPressedTime+2000 > System.currentTimeMillis()){
-            backToast.cancel();
-            super.onBackPressed();
-            return;
-        }else{
-            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            backToast.show();
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                backToast.cancel();
+                super.onBackPressed();
+                return;
+            } else {
+                backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+            backPressedTime = System.currentTimeMillis();
         }
-
-        backPressedTime = System.currentTimeMillis();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -118,7 +136,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
 
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.menu_home:
                             selectedFragment = new FeedFragment();
                             break;

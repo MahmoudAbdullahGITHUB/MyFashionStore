@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         emailET = findViewById(R.id.userName);
         passwordET = findViewById(R.id.password);
-
+        progressBar = findViewById(R.id.progressbar);
         loginBtn = findViewById(R.id.loginBu);
         loginBtn.setOnClickListener(this);
 
@@ -69,7 +69,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (!validateForm()) {
             return;
         }
-        //showProgressBar();
+
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -89,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             updateUI(null);
                         }
 
-                        //hideProgressBar();
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }

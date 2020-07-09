@@ -18,7 +18,6 @@
         android:text="Log in with MyFashionStore"
         android:textSize="15sp"
 
-
         />
 
     <EditText
@@ -30,6 +29,7 @@
         android:background="@drawable/editetextborder"
         android:hint="Username or email"
         android:textColorHint="@color/silver"
+        android:text="b@b.com"
         android:paddingStart="10dp"
         android:textStyle="bold"
         android:autoLink="email"
@@ -44,6 +44,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/editetextborder"
         android:hint="Password"
+        android:text="123456"
         android:paddingStart="10dp"
         android:textColorHint="@color/silver"
         android:textStyle="bold"
@@ -68,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:visibility="gone"
         android:outlineSpotShadowColor="@color/orange"
         android:outlineAmbientShadowColor="@color/orange"
         />

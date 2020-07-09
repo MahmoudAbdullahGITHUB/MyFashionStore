@@ -43,10 +43,31 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.3'
 
     // firebase Auth
-    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.1'
     implementation 'com.google.firebase:firebase-auth:19.3.0'
     // firebase RealTime Database
     implementation 'com.google.firebase:firebase-database:19.3.0'
+    // firebase storage
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    //firebase RecyclerOptions
+    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
+
+
+    //Glide for download image
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Picasso for download image
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    //Recyclerview
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
+    // For control over item selection of both touch and mouse driven selection
+
+    //CardView
+    implementation "androidx.cardview:cardview:1.0.0"
 
 //    implementation 'com.facebook.android:facebook-android-sdk:4.x'
 //    implementation 'com.twitter.sdk.android:twitter-core:3.x'

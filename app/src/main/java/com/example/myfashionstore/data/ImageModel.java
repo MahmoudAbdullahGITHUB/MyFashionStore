@@ -1,13 +1,13 @@
 package com.example.myfashionstore.data;
 
-public class UploadImage {
+public class ImageModel {
     private String iName;
     private String iUrl;
 
-    public UploadImage() {
+    public ImageModel() {
     }
 
-    public UploadImage(String iName, String iUrl) {
+    public ImageModel(String iName, String iUrl) {
         if(iName.trim().equals("")){
             iName="No Name";
         }

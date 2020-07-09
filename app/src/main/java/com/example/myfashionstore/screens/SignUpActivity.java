@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.myfashionstore.R;
-import com.example.myfashionstore.data.Profile;
+import com.example.myfashionstore.data.UserProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -63,15 +63,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
 
 
-//        signUpBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                createAccount(emailET.getText().toString().trim(),passwordET.getText().toString().trim());
-//            }
-//        });
-//        signUpBtn.setAllCaps(false);
-
     }
 
 
@@ -105,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             updateUI(user);
 
                             // record this person on realtime DB;
-                            setUserName();
+                            writeNewUser();
 
                             finish();
                         } else {
@@ -168,7 +159,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
-    private void setUserName(){
+    private void writeNewUser(){
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
 
@@ -176,15 +168,23 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
 
-        Profile profile = new Profile(name , email , password);
+        UserProfile profile = new UserProfile(name , email , password);
 
-        databaseReference.child("user").setValue(profile);
+        databaseReference.child(userId).child("profileInfo").setValue(profile);
+
+
+    }
+
+    private void updateUserName(){
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReference.child("users").child(userId).child("username").setValue("name");
 
     }
 
     private void ReadUserName(){
+
         // Read from the database
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        ValueEventListener userListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -194,12 +194,18 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(DatabaseError databaseError) {
                 // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
             }
-        });
+        };
+        databaseReference.addValueEventListener(userListener);
+
+
     }
+
+
+
 
 
     // lifecycle

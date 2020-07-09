@@ -69,6 +69,7 @@
             android:id="@+id/tabLayoutID"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            style="@style/tabLayoutTheme"
             android:background="?android:attr/windowBackground"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:tabIndicatorColor="@color/black"
@@ -84,11 +85,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="5dp" />
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/searchFragID"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        />-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
