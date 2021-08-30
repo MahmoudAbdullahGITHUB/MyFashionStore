@@ -14,4 +14,6 @@ https://user-images.githubusercontent.com/50070223/131271970-e97ce2df-6864-4867-
 - Java 
 - Firebase Realtime Database
 - Firebase Authentication
+- Animation
 - Material design
+- Validation
